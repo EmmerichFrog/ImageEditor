@@ -1,0 +1,43 @@
+﻿@page "/index.html"
+@inherits ImageEditorBase
+
+<div class="container">
+    @if (!imageLoaded)
+    {
+        <div>
+            <h2>I love you</h2>
+            <img id="head-img" src="header.png">
+        </div>
+    }
+    <div id="panel-type" data-value="@panel" style="display:none;"></div>
+    <div class="upload-section">
+        <InputFile OnChange="HandleFileSelected" accept="image/*" class="upload-input form-control" />
+    </div>
+
+    <div class="progress-container" style="display:none;">
+        <div id="progress-bar" class="progress-bar"></div>
+    </div>
+
+
+    <div class="editor-section">
+        <div class="cropper-wrapper">
+            <img id="uploadedImage" class="image-preview" />
+        </div>
+        @if (imageLoaded && !imageResized)
+        {
+            <div class="button-group">
+
+                @if (!imageCropped)
+                {
+                    <button class="action-button" @onclick="SetPortraitCropper">Portrait</button>
+                    <button class="action-button" @onclick="SetLandscapeCropper">Landscape</button>
+                    <button class="action-button" @onclick="CropImage">✂️ Crop</button>
+                }
+                @if (imageCropped)
+                {
+                    <button class="submit-button" @onclick="SubmitImage">✅ OK</button>
+                }
+            </div>
+        }
+    </div>
+</div>

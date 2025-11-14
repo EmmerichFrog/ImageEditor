@@ -1,0 +1,8 @@
+[*.cs]
+csharp_new_line_before_open_brace = none
+csharp_new_line_before_else = false
+csharp_new_line_before_catch = false
+csharp_new_line_before_finally = false
+
+# IDE0305: Simplify collection initialization
+dotnet_style_prefer_collection_expression = never
