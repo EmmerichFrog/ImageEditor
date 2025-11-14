@@ -132,7 +132,8 @@ window.showPopup = async (message) => {
 };
 
 window.shutdown = async () => {
-    await fetch("    /shutdown")
+    await fetch("/shutdown")
+    window.alert("Shutting down");
 }
 
 function reportWindowSize() {
